@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="text_001" formatted="false">"直接触控"</string>
+    <string name="text_002" formatted="false">"带按键触控板"</string>
+    <string name="text_003" formatted="false">"手势触控板"</string>
+    <string name="text_004" formatted="false">"直接触控模式：支持多点触控。"</string>
+    <string name="text_005" formatted="false">"手势触控板：点击执行单击，长按拖动；双指捏合局部缩放；1倍缩放时，双指同步移动滚动画面；放大状态下，双指滑动平移画面。"</string>
+    <string name="text_006" formatted="false">"图像上方带有透明按键的触控板。按住左键，另一根手指移动即可拖动；双指捏合局部缩放；放大后，双指滑动可在本机A上平移图像。"</string>
+    <string name="text_007" formatted="false">"连接："</string>
+    <string name="text_008" formatted="false">"直连USB → "</string>
+    <string name="text_009" formatted="false">". 在被控机B上，允许“USB调试”；你可以为本机A勾选永久允许。"</string>
+    <string name="text_010" formatted="false">"USB ADB 连接失败"</string>
+    <string name="text_011" formatted="false">"网络ADB → "</string>
+    <string name="text_012" formatted="false">". 如果弹出授权提示，请在被控机B上允许。"</string>
+    <string name="text_013" formatted="false">"ADB 连接失败"</string>
+    <string name="text_014" formatted="false">" 已复制到被控机B。"</string>
+    <string name="text_015" formatted="false">"服务端未能打开全部通道，请在控制台查看服务端错误信息。"</string>
+    <string name="text_016" formatted="false">"视频握手无效"</string>
+    <string name="text_017" formatted="false">"视频分辨率无效"</string>
+    <string name="text_018" formatted="false">"已连接："</string>
+    <string name="text_019" formatted="false">"视频流已关闭"</string>
+    <string name="text_020" formatted="false">"Scrcpy套接字不可用"</string>
+    <string name="text_021" formatted="false">"连接已取消"</string>
+    <string name="text_022" formatted="false">"SYNC响应无效"</string>
+    <string name="text_023" formatted="false">"未知控制消息："</string>
+    <string name="text_024" formatted="false">"控制通道："</string>
+    <string name="text_025" formatted="false">"被控机B音频不可用；将继续仅播放视频。"</string>
+    <string name="text_026" formatted="false">"音频已停止："</string>
+    <string name="text_027" formatted="false">"PCM数据包无效"</string>
+    <string name="text_028" formatted="false">"未知解码器："</string>
+    <string name="text_029" formatted="false">"音频配置无效"</string>
+    <string name="text_030" formatted="false">"缺少音频配置"</string>
+    <string name="text_031" formatted="false">"媒体数据包无效："</string>
+    <string name="text_032" formatted="false">"视频配置发生变更（例如屏幕旋转），录制已终止。你可以在菜单中导出录制文件。"</string>
+    <string name="text_033" formatted="false">"录制已停止："</string>
+    <string name="text_034" formatted="false">"数据包超出解码器最大处理大小"</string>
+    <string name="text_035" formatted="false">"视频解码器不可用；请尝试H264编码或者降低分辨率"</string>
+    <string name="text_036" formatted="false">"请先连接被控手机B。"</string>
+    <string name="text_037" formatted="false">"Shell命令已停止。"</string>
+    <string name="text_038" formatted="false">"列表："</string>
+    <string name="text_039" formatted="false">"已手动停止"</string>
+    <string name="text_040" formatted="false">"已取消"</string>
+    <string name="text_041" formatted="false">"无效鼠标按键"</string>
+    <string name="text_042" formatted="false">"控制队列已满；结束会话以释放全部触控操作。"</string>
+    <string name="text_043" formatted="false">"剪贴板内容过大"</string>
+    <string name="text_044" formatted="false">"ADB头部数据不完整"</string>
+    <string name="text_045" formatted="false">"USB‑ADB魔数校验失败"</string>
+    <string name="text_046" formatted="false">"USB‑ADB数据包长度无效："</string>
+    <string name="text_047" formatted="false">"USB端点无效"</string>
+    <string name="text_048" formatted="false">"原始 • 不缩放"</string>
+    <string name="text_049" formatted="false">"无帧率限制"</string>
+    <string name="text_050" formatted="false">"自动"</string>
+    <string name="text_051" formatted="false">"锁定0°"</string>
+    <string name="text_052" formatted="false">"锁定90°"</string>
+    <string name="text_053" formatted="false">"锁定180°"</string>
+    <string name="text_054" formatted="false">"锁定270°"</string>
+    <string name="text_055" formatted="false">"已禁用"</string>
+    <string name="text_056" formatted="false">"不裁剪"</string>
+    <string name="text_057" formatted="false">"0 • 主显示屏"</string>
+    <string name="text_058" formatted="false">"ID 0 • 如果被控机B支持"</string>
+    <string name="text_059" formatted="false">"ID 1 • 如果被控机B支持"</string>
+    <string name="text_060" formatted="false">"默认选项"</string>
+    <string name="text_061" formatted="false">"每1秒一个关键帧"</string>
+    <string name="text_062" formatted="false">"每2秒一个关键帧"</string>
+    <string name="text_063" formatted="false">"无额外选项"</string>
+    <string name="text_064" formatted="false">"调试日志"</string>
+    <string name="text_065" formatted="false">"16:9摄像头"</string>
+    <string name="text_066" formatted="false">"自动 / 默认"</string>
+    <string name="text_067" formatted="false">"ADB密钥无效"</string>
+    <string name="text_068" formatted="false">"ADB证书无效"</string>
+    <string name="text_069" formatted="false">"Scrcpy • USB直连 /无线 • 服务端 "</string>
+    <string name="text_070" formatted="false">"本机A的USB权限被拒绝或者数据线已拔出。"</string>
+    <string name="text_071" formatted="false">"未授予USB权限。点击连接USB重新尝试。"</string>
+    <string name="text_072" formatted="false">"USB数据线已断开，请重新连接开启自动检测。"</string>
+    <string name="text_073" formatted="false">"本机A不支持USB主机/OTG模式。"</string>
+    <string name="text_074" formatted="false">"未找到USB‑ADB设备。检查被控机BUSB调试、使用数据传输线、本机A开启OTG，并且解锁被控机B。"</string>
+    <string name="text_075" formatted="false">"选择被控手机B"</string>
+    <string name="text_076" formatted="false">"取消"</string>
+    <string name="text_077" formatted="false">"正在等待本机A的USB权限："</string>
+    <string name="text_078" formatted="false">"USB权限："</string>
+    <string name="text_079" formatted="false">"USB：正在连接至 "</string>
+    <string name="text_080" formatted="false">"USB设置："</string>
+    <string name="text_081" formatted="false">"by sw3gmach1n3  ·  本机A控制被控机B"</string>
+    <string name="text_082" formatted="false">"已断开连接"</string>
+    <string name="text_083" formatted="false">"连接"</string>
+    <string name="text_084" formatted="false">"设置"</string>
+    <string name="text_085" formatted="false">"控制台"</string>
+    <string name="text_086" formatted="false">"USB直连 • 推荐"</string>
+    <string name="text_087" formatted="false">"使用数据线把A和B相连。A必须作为USB主机/OTG设备；被控机B开启USB调试。本机A允许USB访问，被控机B允许本机A的ADB密钥。"</string>
+    <string name="text_088" formatted="false">"正在检测USB设备…"</string>
+    <string name="text_089" formatted="false">"应用在前台时自动USB连接"</string>
+    <string name="text_090" formatted="false">"连接USB"</string>
+    <string name="text_091" formatted="false">"刷新USB设备列表"</string>
+    <string name="text_092" formatted="false">"无需IP、无线配对或者电脑。如果找不到设备，请检查OTG模式/“USB由谁控制”以及数据线是否为数据线。"</string>
+    <string name="text_093" formatted="false">"无线 / IP • 可选"</string>
+    <string name="text_094" formatted="false">"被控手机B • 网络"</string>
+    <string name="text_095" formatted="false">"备选方案：A与B需要处于同一网络能够互相访问。"</string>
+    <string name="text_096" formatted="false">"被控机BIP地址 /主机名"</string>
+    <string name="text_097" formatted="false">"ADB连接端口"</string>
+    <string name="text_098" formatted="false">"无线调试主端口"</string>
+    <string name="text_099" formatted="false">"通过网络连接"</string>
+    <string name="text_100" formatted="false">"无线配对 • Android11及以上"</string>
+    <string name="text_101" formatted="false">"在被控机B打开：开发者选项→无线调试→使用配对码配对设备。配对端口和连接端口是两个不同端口。"</string>
+    <string name="text_102" formatted="false">"配对端口"</string>
+    <string name="text_103" formatted="false">"示例：37123"</string>
+    <string name="text_104" formatted="false">"配对码"</string>
+    <string name="text_105" formatted="false">"被控机B上显示的配对6位数字"</string>
+    <string name="text_106" formatted="false">"配对A与B"</string>
+    <string name="text_107" formatted="false">"传统ADB‑TCP模式"</string>
+    <string name="text_108" formatted="false">"可选：电脑执行adb tcpip 5555，然后填入被控机BIP与端口5555。USB直连模式不需要这条命令。"</string>
+    <string name="text_109" formatted="false">"导出上一次录制 /截图"</string>
+    <string name="text_110" formatted="false">"会话设置"</string>
+    <string name="text_111" formatted="false">"设置将在下一次连接生效。配置自动保存。"</string>
+    <string name="text_112" formatted="false">"USB画质 •1920像素 /60帧 /24兆比特每秒"</string>
+    <string name="text_113" formatted="false">"平衡配置 •1280 /60帧 /8兆比特每秒"</string>
+    <string name="text_114" formatted="false">"低带宽模式 •800 /30帧 /2兆比特每秒"</string>
+    <string name="text_115" formatted="false">"已启用"</string>
+    <string name="text_116" formatted="false">"可用参数："</string>
+    <string name="text_117" formatted="false">"保存设置"</string>
+    <string name="text_118" formatted="false">"设置已保存"</string>
+    <string name="text_119" formatted="false">"检查项："</string>
+    <string name="text_120" formatted="false">"恢复默认值"</string>
+    <string name="text_121" formatted="false">"确定重置会话设置？IP地址与配对密钥将会保留。"</string>
+    <string name="text_122" formatted="false">"重置"</string>
+    <string name="text_123" formatted="false">"手动输入…"</string>
+    <string name="text_124" formatted="false">"帮助与命令参考"</string>
+    <string name="text_125" formatted="false">"搜索手册内容"</string>
+    <string name="text_126" formatted="false">"例如：audio、--crop、multitouch"</string>
+    <string name="text_127" formatted="false">"无搜索结果"</string>
+    <string name="text_128" formatted="false">"复制"</string>
+    <string name="text_129" formatted="false">"清空"</string>
+    <string name="text_130" formatted="false">"导出"</string>
+    <string name="text_131" formatted="false">"完整日志已经保存到文件，控制台仅显示最近2MB日志。"</string>
+    <string name="text_132" formatted="false">"被控机B上执行Shell命令：wm size / getprop …"</string>
+    <string name="text_133" formatted="false">"在被控机B执行"</string>
+    <string name="text_134" formatted="false">"请先连接被控机B再执行命令。"</string>
+    <string name="text_135" formatted="false">"端口取值范围1‑65535"</string>
+    <string name="text_136" formatted="false">"等待配对完成"</string>
+    <string name="text_137" formatted="false">"输入被控机B的IP地址"</string>
+    <string name="text_138" formatted="false">"设置："</string>
+    <string name="text_139" formatted="false">"填写被控机BIP以及6位配对码"</string>
+    <string name="text_140" formatted="false">"正在进行配对…"</string>
+    <string name="text_141" formatted="false">"配对成功："</string>
+    <string name="text_142" formatted="false">". 使用【连接端口】建立会话。"</string>
+    <string name="text_143" formatted="false">"配对完成，可以连接被控机B。"</string>
+    <string name="text_144" formatted="false">"配对失败："</string>
+    <string name="text_145" formatted="false">"配对失败；查看控制台日志"</string>
+    <string name="text_146" formatted="false">"会话菜单"</string>
+    <string name="text_147" formatted="false">"初始化："</string>
+    <string name="text_148" formatted="false">"会话"</string>
+    <string name="text_149" formatted="false">"关闭菜单返回控制界面"</string>
+    <string name="text_150" formatted="false">"返回控制"</string>
+    <string name="text_151" formatted="false">"会话已关闭"</string>
+    <string name="text_152" formatted="false">"远程控制"</string>
+    <string name="text_153" formatted="false">"选择交互模式。菜单保持打开直到手动关闭。"</string>
+    <string name="text_154" formatted="false">"直接触控\n多点触控"</string>
+    <string name="text_155" formatted="false">"触控板\n手势模式"</string>
+    <string name="text_156" formatted="false">"触控板\n按键模式"</string>
+    <string name="text_157" formatted="false">"画面上方悬浮左右按键，按键内部透明。按住左键同时拖动光标即可拖拽。"</string>
+    <string name="text_158" formatted="false">"本机A局部缩放 •触控板模式"</string>
+    <string name="text_159" formatted="false">"画面缩放：%.2f倍 •最大6倍"</string>
+    <string name="text_160" formatted="false">"双指捏合只会在本机A缩放裁剪画面，不会修改被控机B；放大状态下双指滑动平移画面；1倍原始大小时双指同步滑动滚动被控B画面。切换直接触控会重置缩放为1倍。"</string>
+    <string name="text_161" formatted="false">"操作\n与工具"</string>
+    <string name="text_162" formatted="false">"控制台\n与命令"</string>
+    <string name="text_163" formatted="false">"断开会话连接"</string>
+    <string name="text_164" formatted="false">"控制通道未激活"</string>
+    <string name="text_165" formatted="false">"操作与工具"</string>
+    <string name="text_166" formatted="false">"‹ 控制模式"</string>
+    <string name="text_167" formatted="false">"被控手机B导航按键"</string>
+    <string name="text_168" formatted="false">"←\n返回"</string>
+    <string name="text_169" formatted="false">"▣\n多任务"</string>
+    <string name="text_170" formatted="false">"音量"</string>
+    <string name="text_171" formatted="false">"音量 −"</string>
+    <string name="text_172" formatted="false">"音量 +"</string>
+    <string name="text_173" formatted="false">"屏幕与面板"</string>
+    <string name="text_174" formatted="false">"关闭\n屏幕"</string>
+    <string name="text_175" formatted="false">"点亮\n屏幕"</string>
+    <string name="text_176" formatted="false">"旋转\n屏幕"</string>
+    <string name="text_177" formatted="false">"通知栏"</string>
+    <string name="text_178" formatted="false">"快捷\n设置"</string>
+    <string name="text_179" formatted="false">"关闭\nB的面板"</string>
+    <string name="text_180" formatted="false">"文本与应用"</string>
+    <string name="text_181" formatted="false">"发送文本\n剪贴板A→B"</string>
+    <string name="text_182" formatted="false">"接收\n剪贴板B→A"</string>
+    <string name="text_183" formatted="false">"在被控机B启动应用"</string>
+    <string name="text_184" formatted="false">"截图与文件"</string>
+    <string name="text_185" formatted="false">"PNG截图"</string>
+    <string name="text_186" formatted="false">"导出上一次\n截图 /录制"</string>
+    <string name="text_187" formatted="false">"被控机B设备信息 •结果输出到控制台"</string>
+    <string name="text_188" formatted="false">"显示屏"</string>
+    <string name="text_189" formatted="false">"解码器"</string>
+    <string name="text_190" formatted="false">"应用列表"</string>
+    <string name="text_191" formatted="false">"摄像头"</string>
+    <string name="text_192" formatted="false">"摄像头分辨率"</string>
+    <string name="text_193" formatted="false">"打开会话控制台"</string>
+    <string name="text_194" formatted="false">"输出结果将展示在会话控制台。"</string>
+    <string name="text_195" formatted="false">"◧  左键"</string>
+    <string name="text_196" formatted="false">"右键  ◨"</string>
+    <string name="text_197" formatted="false">"鼠标左键；长按可以拖动"</string>
+    <string name="text_198" formatted="false">"鼠标右键"</string>
+    <string name="text_199" formatted="false">"控制台 • 当前活跃会话"</string>
+    <string name="text_200" formatted="false">"被控机B Shell命令"</string>
+    <string name="text_201" formatted="false">"执行"</string>
+    <string name="text_202" formatted="false">"停止Shell命令"</string>
+    <string name="text_203" formatted="false">"向被控机B发送文本"</string>
+    <string name="text_204" formatted="false">"在被控机B粘贴"</string>
+    <string name="text_205" formatted="false">"仅剪贴板"</string>
+    <string name="text_206" formatted="false">"被控机B应用包名或者名称"</string>
+    <string name="text_207" formatted="false">"启动"</string>
+    <string name="text_208" formatted="false">"尚未收到视频帧"</string>
+    <string name="text_209" formatted="false">"截图已保存："</string>
+    <string name="text_210" formatted="false">"截图已保存，可以从菜单导出。"</string>
+    <string name="text_211" formatted="false">"截图："</string>
+    <string name="text_212" formatted="false">"正在关闭会话…"</string>
+    <string name="text_213" formatted="false">"已连接至 "</string>
+    <string name="text_214" formatted="false">"被控手机B"</string>
+    <string name="text_215" formatted="false">"收到来自被控机B剪贴板 • "</string>
+    <string name="text_216" formatted="false">" 个字符"</string>
+    <string name="text_217" formatted="false">"已计划重连；你可以在会话菜单停止重连。"</string>
+    <string name="text_218" formatted="false">"Scrcpy控制台"</string>
+    <string name="text_219" formatted="false">"控制台内容已复制"</string>
+    <string name="text_220" formatted="false">"日志内容过长无法复制到剪贴板，请使用导出功能。"</string>
+    <string name="text_221" formatted="false">"复制："</string>
+    <string name="text_222" formatted="false">"清空："</string>
+    <string name="text_223" formatted="false">"暂没有完成的录制或者截图。断开连接录制文件才会完成写入。"</string>
+    <string name="text_224" formatted="false">"目标路径不可访问"</string>
+    <string name="text_225" formatted="false">"文件导出完成"</string>
+    <string name="text_226" formatted="false">"H264录制缺少SPS/PPS参数"</string>
+    <string name="text_227" formatted="false">"MP4：未收到视频帧，空文件已被删除。"</string>
+    <string name="text_228" formatted="false">"MP4文件已保存："</string>
+    <string name="text_229" formatted="false">"被控机B没有开放ADB接口。开启USB调试，重新插拔数据线。"</string>
+    <string name="text_230" formatted="false">"本机A尚未获得USB权限"</string>
+    <string name="text_231" formatted="false">"无法打开USB；确认本机A开启OTG主机模式，重新插拔数据线。"</string>
+    <string name="text_232" formatted="false">"USB‑ADB接口正被占用"</string>
+    <string name="text_233" formatted="false">"USB IN端点初始化失败"</string>
+    <string name="text_234" formatted="false">"本地ADB客户端未能建立USB传输通道"</string>
+    <string name="text_235" formatted="false">"USB已关闭"</string>
+    <string name="text_236" formatted="false">"USB写入未完成："</string>
+    <string name="text_237" formatted="false">". 检查OTG连接以及供电情况。"</string>
+    <string name="text_238" formatted="false">"USB读取任务入队失败"</string>
+    <string name="text_239" formatted="false">"USB请求已取消 /数据线断开"</string>
+    <string name="text_240" formatted="false">"USB传输停止："</string>
+    <string name="text_241" formatted="false">"最大分辨率 •像素"</string>
+    <string name="text_242" formatted="false">"0=原始分辨率；1280是比较合适的起步参数。"</string>
+    <string name="text_243" formatted="false">"视频码率 •比特每秒"</string>
+    <string name="text_244" formatted="false">"8Mbps=8000000。弱WiFi环境建议设置2000000。"</string>
+    <string name="text_245" formatted="false">"最大帧率"</string>
+    <string name="text_246" formatted="false">"30 /60 /90 /120；实际帧率取决于被控机B和连接质量。"</string>
+    <string name="text_247" formatted="false">"视频解码器"</string>
+    <string name="text_248" formatted="false">"视频源"</string>
+    <string name="text_249" formatted="false">"显示屏ID"</string>
+    <string name="text_250" formatted="false">"0为主屏幕；会话菜单可以查看全部显示屏。"</string>
+    <string name="text_251" formatted="false">"画面裁剪"</string>
+    <string name="text_252" formatted="false">"宽:高:x:y，例如1080:1920:0:0；留空代表完整画面。"</string>
+    <string name="text_253" formatted="false">"捕获方向"</string>
+    <string name="text_254" formatted="false">"留空自动；0,90,180,270；@0锁定捕获方向。"</string>
+    <string name="text_255" formatted="false">"视频旋转角度"</string>
+    <string name="text_256" formatted="false">"单位度；服务端执行旋转，本机A屏幕本身不会旋转。"</string>
+    <string name="text_257" formatted="false">"视频编码器"</string>
+    <string name="text_258" formatted="false">"留空自动；在会话菜单编码器列表查看可用编码器名称。"</string>
+    <string name="text_259" formatted="false">"视频编码器附加参数"</string>
+    <string name="text_260" formatted="false">"示例：i‑frame‑interval=1；遵循MediaFormat格式 key[:type]=value。"</string>
+    <string name="text_261" formatted="false">"被控机B音频"</string>
+    <string name="text_262" formatted="false">"音频解码器"</string>
+    <string name="text_263" formatted="false">"音频码率 •比特每秒"</string>
+    <string name="text_264" formatted="false">"适用于AAC/Opus；RAW为无压缩音频。"</string>
+    <string name="text_265" formatted="false">"音频来源"</string>
+    <string name="text_266" formatted="false">"保持被控机B播放声音"</string>
+    <string name="text_267" formatted="false">"音频编码器"</string>
+    <string name="text_268" formatted="false">"留空=自动。"</string>
+    <string name="text_269" formatted="false">"音频编码器附加参数"</string>
+    <string name="text_270" formatted="false">"key[:type]=value，高级选项，取决于编码器。"</string>
+    <string name="text_271" formatted="false">"摄像头ID"</string>
+    <string name="text_272" formatted="false">"留空自动；摄像头源需要Android12以上。"</string>
+    <string name="text_273" formatted="false">"首选摄像头"</string>
+    <string name="text_274" formatted="false">"摄像头尺寸"</string>
+    <string name="text_275" formatted="false">"示例：1920x1080；留空自动。"</string>
+    <string name="text_276" formatted="false">"摄像头帧率"</string>
+    <string name="text_277" formatted="false">"支持则选30或者60。"</string>
+    <string name="text_278" formatted="false">"高速摄像头模式"</string>
+    <string name="text_279" formatted="false">"虚拟显示屏"</string>
+    <string name="text_280" formatted="false">"留空代表关闭；示例1280x720/240；取决于被控机B安卓版本。"</string>
+    <string name="text_281" formatted="false">"允许远程控制"</string>
+    <string name="text_282" formatted="false">"在被控机B显示触摸点"</string>
+    <string name="text_283" formatted="false">"充电时保持被控机B不休眠"</string>
+    <string name="text_284" formatted="false">"会话退出关闭被控机B屏幕"</string>
+    <string name="text_285" formatted="false">"同步接收被控机B剪贴板"</string>
+    <string name="text_286" formatted="false">"出错自动降低分辨率"</string>
+    <string name="text_287" formatted="false">"建立连接关闭被控机B屏幕"</string>
+    <string name="text_288" formatted="false">"本机A录制MP4视频"</string>
+    <string name="text_289" formatted="false">"开启自动重连"</string>
+    <string name="text_290" formatted="false">"光标移动速度"</string>
+    <string name="text_291" formatted="false">"取值0.2‑5.0；鼠标模式是相对触控板，使用本地光标。"</string>
+    <string name="text_292" formatted="false">"服务端附加参数"</string>
+    <string name="text_293" formatted="false">"每行填写key=value；帮助文档包含完整参数表；**不要输入命令行--参数格式**。"</string>
+    <string name="text_294" formatted="false">"无效参数："</string>
+    <string name="text_295" formatted="false">". 格式使用 key=value。"</string>
+    <string name="text_296" formatted="false">"未知服务端参数："</string>
+    <string name="text_297" formatted="false">"参数 "</string>
+    <string name="text_298" formatted="false">" 由客户端接管，不可手动修改。"</string>
+    <string name="text_299" formatted="false">" 不能设置为负数"</string>
+    <string name="text_300" formatted="false">"帧率数值无效"</string>
+    <string name="text_301" formatted="false">"鼠标速度取值范围0.2‑5"</string>
+    <string name="text_302" formatted="false">"视频解码器无效"</string>
+    <string name="text_303" formatted="false">"音频解码器无效"</string>
+    <string name="text_304" formatted="false">"MP4录制需要H264视频；开启音频则需要AAC音频。"</string>
+    <string name="app_name" formatted="false">"Scrcpy"</string>
+    <string name="language" formatted="false">"语言"</string>
+    <string name="language_hint" formatted="false">"选择应用语言。修改立即生效并且自动保存。"</string>
+    <string name="option_display" formatted="false">"屏幕"</string>
+    <string name="option_camera" formatted="false">"摄像头"</string>
+    <string name="option_front" formatted="false">"前置"</string>
+    <string name="option_back" formatted="false">"后置"</string>
+    <string name="option_external" formatted="false">"外接"</string>
+    <string name="option_output" formatted="false">"设备音频输出"</string>
+    <string name="option_playback" formatted="false">"应用回放音频"</string>
+    <string name="option_mic" formatted="false">"麦克风"</string>
+    <string name="option_mic_unprocessed" formatted="false">"麦克风 •原始未处理"</string>
+    <string name="option_mic_camcorder" formatted="false">"麦克风 •录像模式"</string>
+    <string name="option_mic_voice_recognition" formatted="false">"麦克风 •语音识别"</string>
+    <string name="option_mic_voice_communication" formatted="false">"麦克风 •语音通话"</string>
+    <string name="option_voice_call" formatted="false">"语音通话"</string>
+    <string name="option_voice_call_uplink" formatted="false">"语音通话 •上行"</string>
+    <string name="option_voice_call_downlink" formatted="false">"语音通话 •下行"</string>
+    <string name="option_voice_performance" formatted="false">"语音处理模式"</string>
+    <string name="help_intro" formatted="false">"操作指南、控制说明、命令参考；选择分类或者搜索关键词。"</string>
+    <string name="help_search_all" formatted="false">"搜索全部主题…"</string>
+    <string name="help_search_topic" formatted="false">"搜索当前分类…"</string>
+    <string name="help_all_topics" formatted="false">"‹ 返回全部主题"</string>
+    <string name="help_copy_command" formatted="false">"复制命令"</string>
+    <string name="help_command_copied" formatted="false">"命令已复制"</string>
+</resources>

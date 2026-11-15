@@ -1,0 +1,653 @@
+{
+  "version": 1,
+  "topics": [
+    {
+      "id": "connect",
+      "title": "连接",
+      "summary": "USB连接、无线配对以及故障排查",
+      "sections": [
+        {
+          "title": "快速上手",
+          "body": "将APK安装到本机A（控制端手机）。USB直连是主要连接模式，无线模式作为备选。被控手机B不需要安装任何APK：本APP会通过ADB把官方scrcpy3.3.4服务端推送到B设备并启动。\n本机A最低Android8+；被控B视频需要Android5+；输出音频Android11+；摄像头捕获Android12+。未来安卓系统更新不一定保证服务端完全兼容。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "USB直连",
+          "body": "1.被控机B打开开发者选项→开启USB调试，该模式**不需要开启无线调试**。\n2. 使用**数据传输线**连接A、B两台手机；A作为USB主机/OTG设备，B作为USB从设备。部分手机需要手动开启OTG或者修改“USB由哪个设备控制”，A端插上OTG转接头可以稳定角色。\n3. 在本机A打开Scrcpy，授予USB访问权限；插上数据线不会自动启动APP。\n4. 解锁被控B，弹窗选择允许USB调试，勾选始终允许本机A的密钥实现永久授权。\n5. 自动USB连接**只在APP前台运行才会建立会话**。插线后手动打开APP或者点击【连接USB】；多台ADB设备的时候，弹窗选择被控手机B。\n授权成功之后，**不需要IP地址、端口号、配对码，也不需要电脑**。部分安卓版本重新插拔数据线会再次请求本机AUSB权限，这是系统弹窗。\n拔掉数据线会话立刻关闭释放USB资源；重新插线，只有APP前台+开启自动连接才会重试。如果你手动断开会话，必须点连接USB或者重插数据线才会再次连接。\n视频、音频、控制复用scrcpy通道，包含多点触控、触控板鼠标、剪贴板、录制功能。这里的USB直连≠scrcpy命令行--otg/HID模式（那个模式只输入不画面镜像）。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "USB常见故障排查",
+          "body": "•找不到被控B：确认数据线支持数据传输，本机A开启OTG主机，B开启USB调试；开启调试后重新插拔数据线。\n•A识别B但是不出画面：看B是否弹出USB调试授权，打开会话控制台看ADB/服务端报错。\n•小米设备画面正常但是触控失效：被控B打开【USB调试（安全设置）】权限。\n•无法切换主从：两台手机都检查USB设置，A端加OTG转接头+数据数据线连B。\n•画面卡顿：切换平衡配置1280/60FPS/8Mbps或者降低分辨率；USB速度受硬件和数据线影响。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "无线配对（Android11+）",
+          "body": "1.被控B开发者选项打开无线调试。\n2.打开【使用配对码配对设备】；本机A填写B的IP地址、配对端口、6位配对码，点击配对A与B。\n3.被控B关闭配对码弹窗；无线调试主页面拿到【连接IP:端口】填入APP，点击通过网络连接。\n⚠️配对端口和连接端口是两个完全不同端口；关闭无线调试、切换Wi‑Fi安卓会改变连接端口，需要重新填写。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "传统ADB‑TCP模式（电脑辅助）",
+          "body": "电脑USB连接B并且完成授权，执行下面两行命令。\n之后本机A填写被控BIP和端口5555。B弹出授权，允许本机A密钥。小米设备同样需要USB调试安全设置权限才能触控；画面正常但不能操作就是缺少注入权限。",
+          "kind": "text",
+          "command": "adb devices\nadb tcpip 5555"
+        }
+      ]
+    },
+    {
+      "id": "controls",
+      "title": "控制与缩放",
+      "summary": "触控、鼠标按键、本机局部缩放",
+      "sections": [
+        {
+          "title": "交互模式说明",
+          "body": "选择的交互模式会自动保存下次会话复用。切换模式会释放所有已经按下的按键与触控点。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "直接触控",
+          "body": "直接点击画面上面位置；每根手指ID、坐标、压力信息完整发送被控B。捏合、多指手势直接传给被控设备，**不会转换成鼠标点击**。支持同时几根手指取决于两台手机硬件。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "手势触控板",
+          "body": "手指滑动移动光标；短按=单击；手指按住不动之后再拖动实现拖拽。原始1倍画面，双指平行滑动滚动被控设备。这是相对输入，类似VNC远程桌面。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "带按键触控板",
+          "body": "手指滑动画面移动光标；点击动作只能点悬浮在画面上面的左右按键。按键内部透明，只显示轮廓。一根手指按住左键，另外手指滑动画面就拖拽。手指离开触控板区域，不会松开已经长按的按键。1倍画面双指滑动可以滚动被控B。手势触控板功能独立可用。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "两种触控板模式：本机局部缩放",
+          "body": "画面双指捏合缩放，缩放区间1‑6倍。⚠️缩放仅仅发生在本机A，不会向被控B发送捏合手势，也不会修改B分辨率。放大状态双指一起滑动平移画面；恢复1倍原始大小，双指滑动就滚动被控设备。缩放完成抬开全部手指再做下一个手势。鼠标按键不受缩放手势影响。会话三点菜单提供缩小、重置1倍、放大按钮。切换直接触控会重置缩放为1倍，同时保留多点触控发送给被控B。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "",
+          "body": "悬浮三点按钮打开会话菜单，可以拖动移动位置。OLED面板提供三种控制模式、操作工具、控制台、断开会话。点击功能按钮菜单不会自动关闭，需要点×或者返回控制。点击菜单外面空白处**不会关闭菜单**。操作页面包含导航按键、音量、息屏、安卓面板、剪贴板、截图、设备诊断。音量加减可以重复点击不用反复打开菜单。弹窗文本框和控制台浮于上层，关闭弹窗回到工具面板。切换交互模式释放全部正在生效的触控点。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "",
+          "body": "本机A系统返回键会打开会话菜单。想要按下被控B返回键，请使用工具页的远程返回按钮。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "",
+          "body": "外接物理键盘按键码直接转发；输入中文/Unicode文字，请使用【发送文本/剪贴板】功能。",
+          "kind": "text",
+          "command": ""
+        }
+      ]
+    },
+    {
+      "id": "settings",
+      "title": "视频与音频",
+      "summary": "预设配置、编解码器、参数说明",
+      "sections": [
+        {
+          "title": "APP语言设置",
+          "body": "设置页面最底部点开语言，可选择英语或者罗马尼亚语（你修改代码之后这里会多出简体中文）。界面与帮助文档立刻切换，配置永久保存；视频设置、连接参数、ADB密钥不会改动。APP名字统一叫Scrcpy。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "USB高质量预设",
+          "body": "分辨率1920px，60FPS，24000000比特每秒，H264编码；全部视频参数修改，都在下一次连接会话才生效。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "每个输入框旁边有下拉▼按钮",
+          "body": "快速选择预设数值，也可以手动输入自定义。分辨率选项：原始 /4320 /3840 /2560 /2400 /2160 /1920 /1600 /1440 /1280 /1024 /960 /800 /720 /640 /480像素。帧率：无限制 /24 /25 /30 /45 /60 /90 /120 /144 /165 /180 /240。视频码率0.5‑150Mbps。音频码率、摄像头帧率尺寸、方向、虚拟显示屏、光标速度同样有下拉列表。这些只是请求参数，设备硬件决定最终实际生效数值。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "平衡模式预设",
+          "body": "分辨率1280，帧率60，码率8000000，H264编码。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "低带宽网络模式",
+          "body": "分辨率800，帧率30，码率2000000，可关闭音频。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "原始分辨率",
+          "body": "max_size=0；会增加网络带宽和解码压力。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "HEVC(H265)",
+          "body": "video_codec=h265；AV1写video_codec=av1。两台手机都要支持对应解码器；黑屏无法出画面切回H264。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "摄像头源模式",
+          "body": "video_source=camera，camera_facing=back，camera_size=1920x1080。摄像头会话会自动关闭屏幕触控控制。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "画面裁剪",
+          "body": "crop=1080:1920:0:0。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "画面旋转捕获",
+          "body": "capture_orientation=90；锁定方向写法 capture_orientation=@0。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "麦克风音频捕获",
+          "body": "audio=true，audio_source=mic。输出音频能否捕获取决于安卓版本以及被捕获APP策略限制。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "max_size（最大分辨率）",
+          "body": "最大分辨率 •像素。\n默认值：1280。0代表原始尺寸；1280推荐作为起步值。\n示例值：1280。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "video_bit_rate（视频码率）",
+          "body": "视频码率 •比特每秒。\n默认：8000000；8Mbps=8000000；弱Wi‑Fi填2000000。\n示例值：8000000。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "max_fps（最大帧率）",
+          "body": "最大帧率。\n默认60。支持30/60/90/120；实际受被控设备和网络限制。\n示例：60。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "video_codec视频编码",
+          "body": "视频编码。\n默认h264；可选h264|h265|av1。\n示例值：h264。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "video_source视频源",
+          "body": "视频源。\n默认display屏幕；display|camera摄像头。\n示例：display。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "display_id显示屏ID",
+          "body": "显示屏ID。\n默认0，0为主显示屏；会话菜单查看显示屏列表。\n示例值：0。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "crop画面裁剪",
+          "body": "画面裁剪。\n默认留空自动；格式宽:高:x:y，例1080:1920:0:0；空代表完整画面。\n示例：1080:1920:0:0。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "capture_orientation捕获方向",
+          "body": "捕获画面方向。\n默认留空自动；0,90,180,270；@0锁定方向。\n示例值：90。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "angle视频旋转角度",
+          "body": "视频旋转角度。\n默认0，服务端执行旋转，本机屏幕不变化。\n示例：0。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "video_encoder视频编码器",
+          "body": "视频编码器。\n默认空自动；编码器名称从会话菜单编码器列表复制。\n示例值：(编码器列表输出的名字)。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "video_codec_options编码器参数",
+          "body": "视频编码器附加参数。\n默认空自动；示例 i‑frame‑interval=1；MediaFormat格式 key[:type]=value。\n示例值：i‑frame‑interval=1。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "audio开启音频",
+          "body": "获取被控设备音频。\n默认false；true/false开关。\n示例：false。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "audio_codec音频编码",
+          "body": "音频编码。\n默认aac，aac|opus|raw|flac。\n示例值：aac。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "audio_bit_rate音频码率",
+          "body": "音频码率，比特每秒。\n默认128000；AAC/Opus使用；RAW无压缩。\n示例：128000。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "audio_source音频源",
+          "body": "音频来源。\n默认output设备输出；output|playback|mic|mic‑unprocessed|mic‑camcorder|mic‑voice‑recognition|mic‑voice‑communication|voice‑call|voice‑call‑uplink|voice‑call‑downlink|voice‑performance。\n示例：output。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "audio_dup保留B设备播放声音",
+          "body": "被控设备同时保留声音播放。\n默认false，true/false。\n示例：false。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "audio_encoder音频编码器",
+          "body": "音频编码器。\n默认空自动。\n示例：(编码器列表名字)。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "audio_codec_options音频编码器参数",
+          "body": "音频编码器附加参数。\n默认空自动；格式key[:type]=value；高级参数取决于编码器。\n示例：(编码器支持的MediaFormat键值)。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "camera_id摄像头ID",
+          "body": "摄像头ID。\n默认空自动；摄像头源需要Android12+。\n示例：0。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "camera_facing首选摄像头",
+          "body": "首选摄像头。\n默认空自动；front前置|back后置|external外接。\n示例：back。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "camera_size摄像头分辨率",
+          "body": "摄像头尺寸。\n默认空自动；示例1920x1080，空=自动。\n示例：1920x1080。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "camera_fps摄像头帧率",
+          "body": "摄像头帧率。\n默认30，支持30/60看硬件。\n示例：30。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "camera_high_speed高速摄像头",
+          "body": "高速摄像头模式。\n默认false，true/false。\n示例：false。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "new_display虚拟显示屏",
+          "body": "虚拟显示屏。\n默认空代表关闭；例子1280x720/240，依赖被控B安卓版本。\n示例：1280x720/240。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "control允许远程控制",
+          "body": "开启远程操作被控设备。\n默认true；true/false。\n示例：true。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "show_touches显示触摸点",
+          "body": "被控设备屏幕显示触摸白点。\n默认false。\n示例：false。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "stay_awake充电保持B唤醒",
+          "body": "充电的时候保持被控设备不休眠。\n默认false。\n示例：false。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "power_off_on_close退出关闭B屏幕",
+          "body": "会话结束关闭被控B屏幕。\n默认false。\n示例：false。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "clipboard_autosync同步B剪贴板",
+          "body": "自动接收被控设备剪贴板。\n默认true。\n示例：true。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "downsize_on_error出错降低分辨率",
+          "body": "解码出错自动下调分辨率。\n默认true。\n示例：true。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "screenOff连接关闭B屏幕",
+          "body": "建立连接就关闭被控B屏幕。\n默认false。\n示例：false。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "reconnect自动重连",
+          "body": "开启会话断开自动重连。\n默认true。\n示例：true。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "mouseSpeed光标速度",
+          "body": "光标移动速度。\n默认1.2，范围0.2‑5.0；鼠标模式为相对触控板本地光标。\n示例：1.2。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "extra服务端附加参数",
+          "body": "服务端附加配置。\n默认空自动；每行一条key=value；帮助文档完整列表，不要输入--开头命令行参数。\n示例值：log_level=debug。",
+          "kind": "reference",
+          "command": ""
+        }
+      ]
+    },
+    {
+      "id": "files",
+      "title": "录制与文件",
+      "summary": "MP4录制、截图、文件导出",
+      "sections": [
+        {
+          "title": "录制功能",
+          "body": "开启record录制；视频编码选h264；开启音频则音频编码选aac。MP4由压缩流生成；断开会话才完成写入。视频配置变化（旋转屏幕）就结束当前录制；重新连接生成新文件。菜单导出上一次录制/截图，保存到你指定文件夹。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "PNG截图",
+          "body": "PNG截图保存本机A画面显示内容；分辨率等于APP显示画面大小。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "导出文件",
+          "body": "三点菜单→操作工具→导出上一次截图或者录制，选择保存文件夹。会话结束之后，才可以导出已经完成的文件。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "record本机录制MP4",
+          "body": "本机A录制MP4视频。\n默认false；true/false开关。\n示例：false。",
+          "kind": "reference",
+          "command": ""
+        }
+      ]
+    },
+    {
+      "id": "console",
+      "title": "控制台与Shell命令",
+      "summary": "日志等级，被控设备执行命令",
+      "sections": [
+        {
+          "title": "阅读控制台日志",
+          "body": "INFO普通信息；OK绿色；WARN黄色警告；ERROR红色错误；CMD蓝色命令。每条日志头部附带元数据标签USB、ADB、VIDEO、AUDIO标记来源。复制导出为纯文本；颜色只在屏幕显示。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "控制台说明",
+          "body": "输出服务端日志、被控设备stdout/stderr、shell执行结果、客户端报错。复制、清空、导出操作处理日志。清空会清空日志文件+屏幕显示；复制尝试复制全部日志，日志量大优先导出。屏幕只保留最近2MB；日志文件保存全部，直到点击清空。会话内打开：三点菜单→控制台与命令。命令运行被控B的ADB Shell；**不是交互式终端**，每一条命令新建独立shell进程；长时间运行命令点停止Shell命令。被控设备输出原样输出，保留原始语言。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "wm size",
+          "body": "查看被控B屏幕分辨率。",
+          "kind": "command",
+          "command": "wm size"
+        },
+        {
+          "title": "wm density",
+          "body": "查看被控B屏幕DPI密度。",
+          "kind": "command",
+          "command": "wm density"
+        },
+        {
+          "title": "getprop ro.product.model",
+          "body": "读取被控B设备型号。",
+          "kind": "command",
+          "command": "getprop ro.product.model"
+        },
+        {
+          "title": "dumpsys battery",
+          "body": "查看被控B电池状态。",
+          "kind": "command",
+          "command": "dumpsys battery"
+        },
+        {
+          "title": "input keyevent 3",
+          "body": "被控设备回到主页Home。",
+          "kind": "command",
+          "command": "input keyevent 3"
+        },
+        {
+          "title": "input keyevent 4",
+          "body": "被控设备返回Back。",
+          "kind": "command",
+          "command": "input keyevent 4"
+        },
+        {
+          "title": "settings get system screen_brightness",
+          "body": "读取被控设备屏幕亮度值。",
+          "kind": "command",
+          "command": "settings get system screen_brightness"
+        },
+        {
+          "title": "logcat -d -t 100",
+          "body": "获取shell可读取的最近100条系统日志。",
+          "kind": "command",
+          "command": "logcat -d -t 100"
+        },
+        {
+          "title": "pm list packages",
+          "body": "列出被控设备全部安装应用包名。",
+          "kind": "command",
+          "command": "pm list packages"
+        },
+        {
+          "title": "am start -a android.settings.SETTINGS",
+          "body": "打开被控设备系统设置。",
+          "kind": "command",
+          "command": "am start -a android.settings.SETTINGS"
+        }
+      ]
+    },
+    {
+      "id": "server",
+      "title": "服务端参数参考",
+      "summary": "全部服务端键值参数和示例",
+      "sections": [
+        {
+          "title": "附加服务端参数",
+          "body": "服务端附加参数输入框每行写一个key=value；值会自动shell转义；⚠️**禁止填写--开头命令行参数**。示例：\ncamera_ar=16:9\nscreen_off_timeout=300000\nlog_level=debug\nvd_system_decorations=true\n传输层与元数据参数是客户端接管，不能手动覆盖；list_*系列诊断命令在会话菜单执行，结果输出控制台。",
+          "kind": "text",
+          "command": ""
+        },
+        {
+          "title": "scid",
+          "body": "套接字唯一ID，客户端自动生成。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "log_level",
+          "body": "日志等级 debug / info / warn / error；示例 log_level=debug。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "video",
+          "body": "视频通道，客户端强制true。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "audio",
+          "body": "音频，参考上方设置目录。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "video_codec",
+          "body": "视频编码，参考上方设置目录。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "audio_codec",
+          "body": "音频编码，参考上方设置目录。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "video_source",
+          "body": "视频源，参考上方设置目录。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "audio_source",
+          "body": "音频来源，参考上方设置目录。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "audio_dup",
+          "body": "保留B播放声音，参考上方设置目录。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "max_size",
+          "body": "最大分辨率，参考上方设置目录。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "video_bit_rate",
+          "body": "视频码率，参考上方设置目录。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "audio_bit_rate",
+          "body": "音频码率，参考上方设置目录。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "max_fps",
+          "body": "最大帧率，参考上方设置目录。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "angle",
+          "body": "视频旋转角度，参考上方设置目录。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "tunnel_forward",
+          "body": "服务端传输模式；客户端固定true。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "crop",
+          "body": "画面裁剪，参考上方设置目录。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "control",
+          "body": "允许控制，参考上方设置目录。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "display_id",
+          "body": "显示屏ID，参考上方设置目录。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "show_touches",
+          "body": "显示触摸点，参考上方设置目录。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "stay_awake",
+          "body": "充电保持唤醒，参考上方设置目录。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "screen_off_timeout",
+          "body": "息屏超时时间，单位毫秒；screen_off_timeout=300000。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "video_codec_options",
+          "body": "视频编码器参数，参考上方设置目录。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "audio_codec_options",
+          "body": "音频编码器参数，参考上方设置目录。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "video_encoder",
+          "body": "视频编码器，参考上方设置目录。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "audio_encoder",
+          "body": "音频编码器，参考上方设置目录。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "power_off_on_close",
+          "body": "退出关闭屏幕，参考上方设置目录。",
+          "kind": "reference",
+          "command": ""
+        },
+        {
+          "title": "clipboard_autosync",
+          "body": "剪贴板同步，参考上方设置目录。",
+          "kind": "
