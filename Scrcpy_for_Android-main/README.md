@@ -1,4 +1,4 @@
-## **[DOWNLOAD](https://github.com/sw3gmach1n3/Scrcpy_for_Android/releases/tag/V1)**
+## **[DOWNLOAD](https://github.com/q1935278318/Scrcpy_for_Android/tree/master)**
 # Scrcpy for Android
 
 View and control one Android phone from another. Connect them with a USB data cable, open the app, and use the second phone through direct touch or a mouse-style touchpad. Wireless ADB is available too.
